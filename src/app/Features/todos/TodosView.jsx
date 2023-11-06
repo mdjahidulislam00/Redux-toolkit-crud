@@ -11,13 +11,14 @@ function TodosView() {
     phone: ' ',
     age: ' '
   })
+
   const[updateUser, setUpdateUser] = useState({
     id: '',
     name: '',
-    phone: ' ',
-    age: ' '
+    phone: '',
+    age: ''
   })
-  console.log(updateUser)
+ console.log(updateUser.phone)
  const [isEdit, setIsEdit]  = useState(false)
 
   const handleInputChange =(e)=>{
@@ -40,7 +41,7 @@ function TodosView() {
     dispatch(add_user(userInfo))
     setUserInfo({
         name: '',
-        phone: ' ',
+        phone: '',
         age: ' '
     })
     console.log('Click')
@@ -59,7 +60,7 @@ function TodosView() {
         phone: user.phone,
         age: user.age
     })
-    // dispatch(remove_user(user))
+
   }
   const updatUserHandler =(e)=>{
     e.preventDefault()
@@ -68,7 +69,7 @@ function TodosView() {
     
   }
   return (
-    <div className="flex justify-between space-x-10">
+    <div className="h-60 flex justify-between space-x-10">
       <div className="bg-gray-100 p-5">
         <h2 className="p-3 text-xl font-bold">User Input</h2>
         <form className="flex flex-col space-y-2" onSubmit={handleSubmit}>
@@ -81,7 +82,7 @@ function TodosView() {
           <label htmlFor="age">Age
             <input onChange={handleInputChange} type="number" name="age" id="age" value={userInfo.age} />
           </label>
-          <input className="bg-gray-300 p-1 cursor-pointer hover:bg-gray-400" type="submit" value="Submit" />
+          <input className="bg-gray-300 p-1 cursor-pointer rounded-lg font-bold hover:bg-gray-400 " type="submit" value="Submit" />
         </form>
       </div>
       <div>
@@ -108,7 +109,7 @@ function TodosView() {
           <label htmlFor="age">Age
             <input onChange={handleInputChange} type="number" name="age" id="age" value={updateUser.age} />
           </label>
-          <input className="bg-gray-300 p-1 cursor-pointer hover:bg-gray-400" type="submit" value="update" />
+          <input className="bg-gray-300 p-1 cursor-pointer hover:bg-gray-400 " type="submit" value="update" />
         </form>
       }
     </div>

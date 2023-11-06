@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
 
 const initialState = {
-  users: [{ id: nanoid(), name: "Jahid", phone: 12345678, age: '25' }],
+  users: [{ id: nanoid(), name: "Jahid", phone: "12345678", age: '25' }],
 };
 
 const todosSlice = createSlice({
@@ -25,7 +25,7 @@ const todosSlice = createSlice({
       const isAvaliable  =  state.users.filter((user) => user.id == action.payload.id)
       if(isAvaliable){
         isAvaliable[0].name = action.payload.name;
-        isAvaliable[0].number = action.payload.number;
+        isAvaliable[0].phone = action.payload.phone;
         isAvaliable[0].age = action.payload.age;
       }
     }
